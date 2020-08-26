@@ -16,7 +16,7 @@ cache:
 # 指定博客源码分支，因人而异。hexo博客源码托管在独立repo则不用设置此项
 branches:
   only:
-    - hexo
+    - master
     
 # 执行生成网页操作
 script:
@@ -30,7 +30,7 @@ after_script:
   - git config user.email "15101695969@163.com"
   - git add .
   - git commit -m "Travis CI Auto Builder at $(date +'%Y-%m-%d %H:%M:%S')"
-  - git push --force --quiet "https://${GH_TOKEN}@github.com/shiyinianjian/shiyinianjian.github.io.git" master:master
+  - git push --force --quiet "https://${GH_TOKEN}@${GH_PAGES}" master:master
   
 #deploy:
 #  provider: pages
