@@ -1,0 +1,42 @@
+# 指定需要sudo权限
+sudo: false
+
+# 指定语言环境
+language: node_js
+
+# 指定node_js版本
+node_js:
+  - 10
+  
+# 指定缓存模块，可选。缓存可加快编译速度。
+cache:
+  directories:
+    - node_modules
+    
+# 指定博客源码分支，因人而异。hexo博客源码托管在独立repo则不用设置此项
+branches:
+  only:
+    - hexo
+    
+# 执行生成网页操作
+script:
+  - hexo generate
+  
+# 部署
+after_script:
+  - cd ./public
+  - git init
+  - git config user.name "shiyinianjian"
+  - git config user.email "15101695969@163.com"
+  - git add .
+  - git commit -m "Travis CI Auto Builder at $(date +'%Y-%m-%d %H:%M:%S')"
+  - git push --force --quiet "https://${GH_TOKEN}@github.com/shiyinianjian/shiyinianjian.github.io.git" master:master
+  
+#deploy:
+#  provider: pages
+#  skip-cleanup: true
+#  github-token: $GH_TOKEN
+#  keep-history: true
+#  on:
+#    branch: master
+#  local-dir: public
