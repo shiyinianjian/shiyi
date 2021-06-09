@@ -90,7 +90,7 @@ layout: "tags"
 ---
 ```
 
-自我解读：layout的设置会在/themes/ayer/layout文件夹里找到对应的文件tags.ejs，从而在生成标签页面时根据tags.ejs设置的属性和样式生成标签页面
+个人解读：layout的设置会在/themes/ayer/layout文件夹里找到对应的文件tags.ejs，从而在生成标签页面时根据tags.ejs设置的属性和样式生成标签页面
 
 ### 4.控制台
 
