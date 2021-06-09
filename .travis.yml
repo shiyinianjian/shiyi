@@ -1,6 +1,3 @@
-# 指定需要sudo权限
-# sudo: false
-
 # 指定语言环境
 language: node_js
 
